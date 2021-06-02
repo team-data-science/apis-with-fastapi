@@ -1,12 +1,16 @@
-from os import times
+# You need this to use FastAPI, work with statuses and be able to end HTTPExceptions
 from fastapi import FastAPI, status, HTTPException
+
+# Both used for BaseModel
 from pydantic import BaseModel
 from typing import Optional
+
+# You need this to be able to turn classes into JSONs and return
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-import json
 
-
+# import json
+# from os import times
 
 
 class Customer(BaseModel):
@@ -65,6 +69,7 @@ async def read_customer(customer_id: str):
         raise HTTPException(status_code=404, detail="Item not found")
 
 
+# Create a new invoice for a customer
 @app.post("/customer/{customer_id}/invoice")
 async def create_invoice(customer_id: str, invoice: Invoice):
     
@@ -81,10 +86,12 @@ async def create_invoice(customer_id: str, invoice: Invoice):
     return JSONResponse(content=ex_invoice) 
 
 
+
+# Return all invoices for a customer
 @app.get("/customer/{customer_id}/invoice")
 async def get_invoices(customer_id: str):
     
-    # Create Links to the actual invoice
+    # Create Links to the actual invoice (get from DB)
     ex_json = { "id_123456" : "/invoice/123456",
                 "id_789101" : "/invoice/789101" 
     }
@@ -106,10 +113,12 @@ async def read_invoice(invnoice_no: int):
     return JSONResponse(content=ex_invoice)
 
 
+#get a specific stock code on the invoice
 @app.get("/invoice/{invnoice_no}/{stockcode}/")
 async def read_item(invnoice_no: int,stockcode: str):
     return {"message": "Hello World"}
 
+# Add a stockcode to the inovice
 @app.post("/invoice/{invnoice_no}/{stockcode}/")
 async def add_item(invnoice_no: int ,stockcode:str):
     return {"message": "Hello World"}

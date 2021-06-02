@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "8c35be88-9dcd-411c-9e22-2eb496adc664",
+		"name": "FASTApiTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost",
+					"host": [
+						"localhost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/customer/12345",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"customer",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customer_id\": \"22ff32f22f\",\r\n    \"country\": \"Germany\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/customer",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new Invoice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"invoice_no\": 56587,\r\n  \"invoice_date\": \"string\",\r\n  \"customer\": {\r\n    \"url\": \"string\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/customer/sdfsdf/invoice",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"customer",
+						"sdfsdf",
+						"invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all invoices for customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/customer/sdfsdf/invoice",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"customer",
+						"sdfsdf",
+						"invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Invoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/invoice/56587",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"invoice",
+						"56587"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
