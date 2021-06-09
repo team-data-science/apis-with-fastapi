@@ -20,7 +20,9 @@ class Customer(BaseModel):
 
 
 class URLLink(BaseModel):
-    url: str
+    #url: str
+    url: Optional[str] = None
+    
 
 class Invoice(BaseModel):
     invoice_no: int
